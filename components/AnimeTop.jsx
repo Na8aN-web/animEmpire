@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import PaginationCircle from "./PaginationCircle";
+import Loader from "./Loader";
 
 const AnimeTop = () => {
   const [animeList, setAnimeList] = useState([]);
@@ -10,6 +11,8 @@ const AnimeTop = () => {
   const [fade, setFade] = useState(false); // State to handle fade-out and fade-in effect
   const itemsPerPage = 12;
   const router = useRouter();
+
+
   useEffect(() => {
     axios
       .get("https://api.jikan.moe/v4/top/anime")
@@ -47,6 +50,10 @@ const AnimeTop = () => {
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = animeList.slice(indexOfFirstItem, indexOfLastItem);
+
+  if (loading){
+    return <Loader />
+  }
 
   return (
     <div className="min-h-screen bg-gray-900 flex flex-col items-center py-8 justify-center">

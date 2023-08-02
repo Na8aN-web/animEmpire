@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
+import Loader from "@/components/Loader";
 import Layout from "@/components/Layout";
 
 const SearchResults = () => {
@@ -34,6 +35,10 @@ const SearchResults = () => {
     // Redirect to the anime details page for the selected anime
     router.push(`/anime/${animeId}`);
   };
+
+  if (loading){
+    return <Loader />
+  }
 
   return (
     <Layout>

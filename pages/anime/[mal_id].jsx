@@ -60,17 +60,17 @@ const AnimeDetails = () => {
     <Layout>
       <div className="relative mt-12">
         <div className="flex flex-col md:flex-row">
-          {/* Carousel */}
+          {/* image */}
           <div className="w-full md:w-1/2">
             <img
               src={images.jpg.large_image_url}
               alt={title_japanese}
-              className="w-full h-96 md:h-full"
+              className="w-full md:h-screen h-96"
             />
           </div>
 
           {/* Text Container */}
-          <div className="w-full md:w-1/2 md:h-full h-96 bg-black bg-opacity-80 text-white p-6 md:p-16 overflow-y-scroll custom-scrollbar">
+          <div className="w-full md:w-1/2 md:h-screen h-96 bg-black bg-opacity-80 text-white p-6 md:p-16 overflow-y-scroll custom-scrollbar">
             <div className="">
               <h1 className="text-white text-[20px] md:text-[40px] mb-4 flex justify-start w-full neon-glow font-mont">
                 {title_japanese}({title_english})

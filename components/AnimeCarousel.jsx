@@ -50,16 +50,16 @@ const AnimeCarousel = () => {
     }
     return shuffled;
   };
+  if (isLoading){
+    return <Loader />
+  }
 
-  console.log(trendingAnime)
   return (
     <div className="relative mt-12 ">
       <div className="flex flex-col md:flex-row">
         {/* Carousel */}
         <div className="w-full md:w-1/2">
-          {isLoading ? (
-            <Loader />
-          ) : isCarouselReady ? ( // Check if the carousel is ready
+          {isCarouselReady && ( // Check if the carousel is ready
             <Carousel
               showArrows={true}
               autoPlay={true}
@@ -81,7 +81,7 @@ const AnimeCarousel = () => {
                 </div>
               ))}
             </Carousel>
-          ) : null}
+          )}
         </div>
 
         {/* Text Container */}
